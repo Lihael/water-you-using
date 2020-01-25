@@ -5,7 +5,6 @@ import PieChart from 'react-minimal-pie-chart';
 import {VictoryPie} from 'victory';
 import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
-import './WaterBreakdown.css'
 
 
 class WaterBreakdown extends React.Component{
@@ -19,7 +18,8 @@ class WaterBreakdown extends React.Component{
     render(){
         
         return <div>
-        <Dropdown text='Time Frame Selection'>
+  <div class="ui teal massive label"><center><font color = "White">Breakdown by Device: {this.state.option}</font></center></div>
+        <center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
     <Dropdown.Menu>
       <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />
       <Dropdown.Item text='Past Day' onClick = {() => this.setTimeFrame('daily')}/>
@@ -27,8 +27,7 @@ class WaterBreakdown extends React.Component{
       <Dropdown.Item text='Past Month' onClick = {() => this.setTimeFrame('monthly')}/>
       <Dropdown.Item text='Past Years' onClick = {() => this.setTimeFrame('yearly')}/>
     </Dropdown.Menu>
-  </Dropdown>
-        <center><font color = "White">Breakdown by Device: {this.state.option}</font></center>
+  </Dropdown> </div><br /></center>
         
           <VictoryPie
           colorScale = "cool"
