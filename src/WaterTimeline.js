@@ -9,16 +9,18 @@ var weeklyJSON = null
 var monthlyJSON = null
 var yearlyJSON = null
 
+//http://dorm.buttersalt.me:5000/lasthourvolume/mitchell/testpassmitchell/bathroom
+//Returns a float with the water usage in the last hour for "bathroom"
 
 
 class WaterTimeline extends React.Component {
-
     state = {option: 'hourly'}
     setTimeFrame(optionChoice) {
         this.setState({
         //...this.state,
         option: optionChoice})
     }
+
     componentDidMount(){
         request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT', function(error,response,body){
             console.log(error)
@@ -63,18 +65,7 @@ class WaterTimeline extends React.Component {
             </Dropdown> 
             </div><br />
         </center>
-    
-        <VictoryChart>
-            <VictoryLine
-            data={[
-                { x: 1, y: 2 },
-                { x: 2, y: 3 },
-                { x: 3, y: 5 },
-                { x: 4, y: 4 },
-                { x: 5, y: 6 }
-                ]}
-            />
-        </VictoryChart>
+        
         </div>
     }
 
