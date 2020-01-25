@@ -12,6 +12,7 @@ var dailyJSON = null
 var weeklyJSON = null
 var monthlyJSON = null
 var yearlyJSON = null
+var data = [13,30,40,300,500,900,2000,5000,6000,]
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
@@ -19,7 +20,6 @@ class WaterBreakdown extends React.Component{
             console.log(error)
             console.log(response)
             dailyJSON = body
-            console.log(dailyJSON)
         })
         request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/HOURLY_DATA_POINT', function(error,response,body){
             console.log(error)
@@ -42,11 +42,10 @@ class WaterBreakdown extends React.Component{
             yearlyJSON = body
         })
     }
-
+    
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     setTimeFrame(optionChoice) {
         this.setState({
-          ...this.state,
           option: optionChoice
         })
       }
