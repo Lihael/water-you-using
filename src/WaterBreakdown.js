@@ -17,8 +17,8 @@ class WaterBreakdown extends React.Component{
       }
     render(){
         
-        return <div>
-  <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center>
+        return <div><br/><br/>
+  <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
         <center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
     <Dropdown.Menu>
       <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />

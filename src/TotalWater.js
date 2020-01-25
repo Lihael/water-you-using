@@ -9,13 +9,13 @@ class TotalWater extends React.Component {
     this.setState({waterOunces:1000})
   }
   render() {
-    return <div><center><div class="ui teal massive label"><br/><br/><br/>
+    return <div><br/><br/><br/><div><center><div class="ui teal massive label">
         {this.state.waterOunces}
     </div></center>
     <div class="label"><font color = "White">
       Ounces of Water Used</font>
     </div>
-  </div>
+  </div> </div>
 }
 }
 
