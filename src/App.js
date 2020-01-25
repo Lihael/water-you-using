@@ -7,9 +7,12 @@ import {Button} from 'semantic-ui-react'
 
 
 class App extends React.Component{
-  state = {page: 'TotalWater'}
+  state = {page: 'TotalWater', waterTime: "19:20",waterVolume: 100}
   setButton(pageSet) {
-    this.setState({page: pageSet})
+    this.setState({
+      ...this.state,
+      page: pageSet,
+    })
   }
   render(){
     const date = new Date()
@@ -27,8 +30,12 @@ class App extends React.Component{
             <div className = "buttons" style = {{display:'flex', flexDirection: 'row'}}>
               <Button primary onClick={() => this.setButton('WaterBreakdown')}>Water Breakdown</Button>
               <Button secondary onClick={() => this.setButton('TotalWater')}>Total Water</Button>
+              <Button secondary onClick={() => this.setButton('WaterTimeline')}>Water Timeline</Button>
             </div>
             <Content page = {this.state.page} />
+            <p>Most recent water activity: 
+              Time: {this.state.waterTime}
+              Volume: {this.state.waterVolume}</p>
             
            </div>
 
