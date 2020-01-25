@@ -18,7 +18,7 @@ class WaterBreakdown extends React.Component{
     render(){
         
         return <div>
-  <div class="ui teal massive label"><center><font color = "White">Breakdown by Device: {this.state.option}</font></center></div>
+  <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center>
         <center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
     <Dropdown.Menu>
       <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />
@@ -38,7 +38,7 @@ class WaterBreakdown extends React.Component{
     { x: "Kitchen", y: this.state.kitchen }
   ]}
 />
-<h><center><font color = "White">Total Breakdown</font></center></h>
+<center><div class="ui teal massive label"><font color = "White">Total Breakdown</font></div></center>
 <VictoryBar
   barRatio={2}
   data={[
