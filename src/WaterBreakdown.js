@@ -14,31 +14,54 @@ var request = require('request')
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/SOMEDATA', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            //data = body
-        })
+        this.setTimeFrame('hourly')
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     setTimeFrame(optionChoice) {
+        
         var timeIndex = 0;
-        var kitchenData = [0,1,2,3,4]
-        var toiletData = [0,1,2,3,4]
-        var faucetData = [0,1,2,3,4]
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/KITCHEN', function(error,response,body){
+        var kitchenData = [0.0,1.0,2.0,3.0,4.0]
+        var toiletData = [0.0,1.0,2.0,3.0,4.0]
+        var faucetData = [0.0,1.0,2.0,3.0,4.0]
+        var json1 = []
+        var json2 = []
+        var json3 = []
+        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen', function(error,response,body){
             console.log(error)
             console.log(response)
-            kitchenData = body;})
+            json1 = JSON.parse(body);
+            console.log("KitchenData1 inside: " + kitchenData[1])
+        })
+        kitchenData[0] = parseFloat(json1[0].hour)
+        kitchenData[1] = parseFloat(json1[0].day)
+        kitchenData[2] = parseFloat(json1[0].week)
+        kitchenData[3] = parseFloat(json1[0].month)
+        kitchenData[4] = parseFloat(json1[0].year)
+        console.log(kitchenData)
+        console.log("KitchenData1 outside: " + kitchenData[1]);
         request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom', function(error,response,body){
             console.log(error)
             console.log(response)
-            toiletData = body;})
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/FAUCET', function(error,response,body){
+            json2 = JSON.parse(body);
+            
+        })
+        toiletData[0] = parseFloat(json2[0].hour)
+        toiletData[1] = parseFloat(json2[0].day)
+        toiletData[2] = parseFloat(json2[0].week)
+        toiletData[3] = parseFloat(json2[0].month)
+        toiletData[4] = parseFloat(json2[0].year)
+        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet', function(error,response,body){
             console.log(error)
-            console.log(response)
-            faucetData = body;})
+            console.log(response) 
+            json3 = JSON.parse(body);   
+            
+        })
+        faucetData[0] = parseFloat(json3[0].hour)
+        faucetData[1] = parseFloat(json3[0].day)
+        faucetData[2] = parseFloat(json3[0].week)
+        faucetData[3] = parseFloat(json3[0].month)
+        faucetData[4] = parseFloat(json3[0].year)
         if(optionChoice === 'hourly'){
             timeIndex = 0;
         }
