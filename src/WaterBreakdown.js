@@ -1,10 +1,11 @@
 import React from 'react'
-import {Progress} from 'semantic-ui-react';
+import {Progress, Label} from 'semantic-ui-react';
 import ReactInterval from 'react-interval';
 import PieChart from 'react-minimal-pie-chart';
 import {VictoryPie} from 'victory';
 import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
+import './WaterBreakdown.css'
 
 
 class WaterBreakdown extends React.Component{
@@ -27,8 +28,8 @@ class WaterBreakdown extends React.Component{
       <Dropdown.Item text='Past Years' onClick = {() => this.setTimeFrame('yearly')}/>
     </Dropdown.Menu>
   </Dropdown>
-          <h><center><font color = "White">Breakdown by Device: {this.state.option}</font></center></h>
-    
+        <center><font color = "White">Breakdown by Device: {this.state.option}</font></center>
+        
           <VictoryPie
           colorScale = "cool"
          style={{ labels: { fill: "white" } }}
