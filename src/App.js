@@ -1,6 +1,7 @@
 import React from 'react';
 import Content from './Content.js';
 
+
 class App extends React.Component{
   state = {}
   render(){
