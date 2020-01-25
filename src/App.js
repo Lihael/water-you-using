@@ -1,5 +1,6 @@
 import React from 'react';
 import Content from './Content'
+import SidebarBar from './SidebarBar'
 
 
 
@@ -15,6 +16,7 @@ class App extends React.Component{
   }}> 
             <h1> Welcome to Water You Using!</h1>
             <p >{date.toDateString()}</p>
+            <SidebarBar/>
             <Content />
            </div>
 
