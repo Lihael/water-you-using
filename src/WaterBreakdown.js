@@ -4,14 +4,31 @@ import ReactInterval from 'react-interval';
 import PieChart from 'react-minimal-pie-chart';
 import {VictoryPie} from 'victory';
 import {VictoryBar} from 'victory';
+import {Dropdown} from 'semantic-ui-react'
 
 
 class WaterBreakdown extends React.Component{
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
+    setTimeFrame(optionChoice) {
+        this.setState({
+          ...this.state,
+          option: optionChoice
+        })
+      }
     render(){
         
         return <div>
-          <h><center><font color = "White">Breakdown by Device</font></center></h>
+        <Dropdown text='Time Frame Selection'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />
+      <Dropdown.Item text='Past Day' onClick = {() => this.setTimeFrame('daily')}/>
+      <Dropdown.Item text='Past Week' onClick = {() => this.setTimeFrame('weekly')}/>
+      <Dropdown.Item text='Past Month' onClick = {() => this.setTimeFrame('monthly')}/>
+      <Dropdown.Item text='Past Years' onClick = {() => this.setTimeFrame('yearly')}/>
+    </Dropdown.Menu>
+  </Dropdown>
+          <h><center><font color = "White">Breakdown by Device: {this.state.option}</font></center></h>
+    
           <VictoryPie
           colorScale = "cool"
          style={{ labels: { fill: "white" } }}
