@@ -1,6 +1,5 @@
 import React from 'react';
 
-import 'react-circular-progressbar/dist/styles.css';
 
 
 
