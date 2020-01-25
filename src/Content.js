@@ -5,8 +5,13 @@ import WaterBreakdown from './WaterBreakdown'
 
 class Content extends React.Component{
     state = {page: 'TotalWater'}
+<<<<<<< HEAD
     render(){
         this.setState(this.props.page)
+=======
+    render(props){
+        this.setState(props)
+>>>>>>> parent of 6155dda... added buttons working
          if(this.state.page === 'TotalWater'){
              return <TotalWater/>
          }
