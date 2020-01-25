@@ -11,6 +11,7 @@ class WaterBreakdown extends React.Component{
     render(){
         const time = this.state.time
         return <div>
+          <h><center><font color = "White">Breakdown by Device</font></center></h>
           <VictoryPie
           colorScale = "cool"
          style={{ labels: { fill: "white" } }}
