@@ -1,7 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-import './App.css';
-import { render } from '@testing-library/react';
 import Content from './Content.js';
 
 class App extends React.Component{
