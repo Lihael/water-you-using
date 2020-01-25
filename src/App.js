@@ -25,8 +25,8 @@ class App extends React.Component{
             
             <Tips/>
             <div className = "buttons" style = {{display:'flex', flexDirection: 'row'}}>
-              <Button primary onClick={() => this.setButton('WaterBreakdown')}>Water Breakdown</Button>
-              <Button secondary onClick={() => this.setButton('TotalWater')}>Total Water</Button>
+              <Button primary onClick={() => this.totalButton('WaterBreakdown')}>Water Breakdown</Button>
+              <Button secondary onClick={() => this.totalButton('TotalWater')}>Total Water</Button>
             </div>
             <Content name = {this.state.page} />
             
