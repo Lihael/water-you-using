@@ -11,7 +11,7 @@ function Content(props){
     else if(props.page === 'WaterBreakdown'){
         return <WaterBreakdown/>
     }
-    else if(props.page === 'Water Timeline'){
+    else if(props.page === 'WaterTimeline'){
         return <WaterTimeline/>
     }
     else{
