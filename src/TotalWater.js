@@ -1,48 +1,44 @@
 import React from 'react';
-import './TotalWater.css';
+import './TotalWater.scss';
 
 class TotalWater extends React.Component {
-
+  state = {};
   render() {
-
-// progressbar.js@1.0.0 version is used
-// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-// eslint-disable-next-line no-undef
-var bar = new ProgressBar.Circle(container, {
-  color: '#aaa',
-  // This has to be the same size as the maximum width to
-  // prevent clipping
-  strokeWidth: 4,
-  trailWidth: 1,
-  easing: 'easeInOut',
-  duration: 1400,
-  text: {
-    autoStyleContainer: false
-  },
-  from: { color: '#aaa', width: 1 },
-  to: { color: '#333', width: 4 },
-  // Set default step function for all animate calls
-  step: function(state, circle) {
-    circle.path.setAttribute('stroke', state.color);
-    circle.path.setAttribute('stroke-width', state.width);
-
-    var value = Math.round(circle.value() * 100);
-    if (value === 0) {
-      circle.setText('');
-    } else {
-      circle.setText(value);
-    }
-
+    var cnt=document.getElementById("count"); 
+var water=document.getElementById("water");
+var percent=cnt.innerText;
+var interval;
+interval=setInterval(function(){ 
+  percent++; 
+  cnt.innerHTML = percent; 
+  water.style.transform='translate(0'+','+(100-percent)+'%)';
+  if(percent==100){
+    clearInterval(interval);
   }
-});
-bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-bar.text.style.fontSize = '2rem';
-
-bar.animate(1.0);  // Number from 0.0 to 1.0
-return <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
-<div id="container"></div></link>
-  }
+},60);
+return <div><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
+<symbol id="wave">
+  <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+  <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+  <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+  <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+</symbol>
+</svg>
+<div class="box">
+<div class="percent">
+  <div class="percentNum" id="count">0</div>
+  <div class="percentB">%</div>
+</div>
+<div id="water" class="water">
+  <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+    <use xlinkHref="#wave"></use>
+  </svg>
+  <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+    <use xlinkHref="#wave"></use>
+  </svg>
+</div>
+</div></div>
+}
 }
 
-export default TotalWater; 
+export default TotalWater;
