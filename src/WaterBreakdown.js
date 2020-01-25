@@ -7,50 +7,54 @@ import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
 
 var request = require('request')
-var hourlyJSON = null
-var dailyJSON = null
-var weeklyJSON = null
-var monthlyJSON = null
-var yearlyJSON = null
-var data = [13,30,40,300,500,900,2000,5000,6000,]
+
+var data = [13,50,40,130,200,800,1000,1500,2000,5000,10000,30000,60000,50000,300000]
+
+//Use this URL for the bar chart breakdown: http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT
+//Use this URL for the pie chart breakdown (breakdown by device): http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/toilet/DAILY_DATA_POINT
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT', function(error,response,body){
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/SOMEDATA', function(error,response,body){
             console.log(error)
             console.log(response)
-            dailyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/HOURLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            hourlyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/WEEKLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            weeklyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/MONTHLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            monthlyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/YEARLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            yearlyJSON = body
+            data = body
         })
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     setTimeFrame(optionChoice) {
+        var startIndex = 0;
+        if(optionChoice === 'hourly'){
+            startIndex = 0;
+            //JSON file will return all water events in the last day
+            //Therefore, this method should loop through all provided objects and 
+        }
+        else if(optionChoice === 'daily'){
+            startIndex = 3;
+        }
+        else if(optionChoice === 'weekly') {
+            startIndex = 6;
+        }
+        else if(optionChoice === 'monthly') {
+            startIndex = 9;
+        }
+        else {
+            startIndex = 12;
+        }
+        var toilet = data[startIndex]
+        var faucet = data[startIndex + 1]
+        var kitchen = data[startIndex + 2]
+
         this.setState({
-          option: optionChoice
+          option: optionChoice,
+          toilet: toilet,
+          faucet: faucet,
+          kitchen: kitchen
         })
       }
-    render(){
-        
+
+    render(){  
         return <div><br/><br/>
   <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
         <center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
