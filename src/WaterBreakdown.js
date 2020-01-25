@@ -3,6 +3,7 @@ import {Progress} from 'semantic-ui-react';
 import ReactInterval from 'react-interval';
 import PieChart from 'react-minimal-pie-chart';
 import {VictoryPie} from 'victory';
+import {VictoryBar} from 'victory';
 
 
 class WaterBreakdown extends React.Component{
@@ -12,13 +13,25 @@ class WaterBreakdown extends React.Component{
         return <div>
         <ReactInterval timeout={1000} enabled={true}
           callback={() => this.setState({count: this.state.count + 1})} />
-        <p>lmaoooo</p>
-        <VictoryPie style={{ labels: { fill: "white" } }}
+        <VictoryPie
+        title = "Breakdown by Device"
+          colorScale = "cool"
+         style={{ labels: { fill: "white" } }}
   data={[
     { x: "Cats", y: 35 },
     { x: "Dogs", y: 40 },
     { x: "Birds", y: 55 }
   ]}
+/>
+<VictoryBar
+  barRatio={2}
+  data={[
+    { x: "Cats", y: 35 },
+    { x: "Dogs", y: 40 },
+    { x: "Birds", y: 55 }
+  ]}
+  labels={({ datum }) => datum.y}
+  style={{ labels: { fill: "white" } }}
 />
         </div>
     }
