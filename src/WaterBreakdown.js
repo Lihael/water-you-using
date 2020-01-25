@@ -9,7 +9,7 @@ import {VictoryBar} from 'victory';
 class WaterBreakdown extends React.Component{
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     render(){
-        const time = this.state.time
+        
         return <div>
           <h><center><font color = "White">Breakdown by Device</font></center></h>
           <VictoryPie
