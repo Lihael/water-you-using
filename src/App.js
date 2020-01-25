@@ -15,7 +15,7 @@ class App extends React.Component{
       alignItems: 'center',
       justifyContent: 'center',
   }}> 
-            <h1><font color = "White"> Welcome to Water You Using! </font></h1>
+            <h1><font color = "White">Welcome to Water You Using!</font></h1>
             <p ><font color = "White">{date.toDateString()}</font></p>
             <Tips/>
             <Content/>
