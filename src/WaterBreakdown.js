@@ -20,7 +20,7 @@ class WaterBreakdown extends React.Component{
     { x: "Kitchen", y: this.state.kitchen }
   ]}
 />
-<h><text color = "White">Total Breakdown</text></h>
+<h><center><font color = "White">Total Breakdown</font></center></h>
 <VictoryBar
   barRatio={2}
   data={[
