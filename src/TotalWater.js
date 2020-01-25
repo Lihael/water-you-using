@@ -1,16 +1,48 @@
 import React from 'react';
+import './TotalWater.css';
 
 class TotalWater extends React.Component{
     state = {}
   render(){
-    return <div className="App"> 
-            <svg height="100" width="100">
-            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-            </svg>
-            <svg height="30" width="200">
-            <text x="50" y="50" fill="red">I love SVG!</text>
-            </svg>
-           </div>
+
+    // progressbar.js@1.0.0 version is used
+// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
+var bar = new ProgressBar.Circle(container, {
+    color: '#aaa',
+    // This has to be the same size as the maximum width to
+    // prevent clipping
+    strokeWidth: 4,
+    trailWidth: 1,
+    easing: 'easeInOut',
+    duration: 1400,
+    text: {
+      autoStyleContainer: false
+    },
+    from: { color: '#aaa', width: 1 },
+    to: { color: '#333', width: 4 },
+    // Set default step function for all animate calls
+    step: function(state, circle) {
+      circle.path.setAttribute('stroke', state.color);
+      circle.path.setAttribute('stroke-width', state.width);
+  
+      var value = Math.round(circle.value() * 100);
+      if (value === 0) {
+        circle.setText('');
+      } else {
+        circle.setText(value);
+      }
+  
+    }
+  });
+  bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+  bar.text.style.fontSize = '2rem';
+  
+  bar.animate(1.0);  // Number from 0.0 to 1.0
+
+    return
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+<div id="container"></div> </link>
   }
 }
 
