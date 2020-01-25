@@ -28,7 +28,7 @@ class App extends React.Component{
               <Button primary onClick={() => this.setButton('WaterBreakdown')}>Water Breakdown</Button>
               <Button secondary onClick={() => this.setButton('TotalWater')}>Total Water</Button>
             </div>
-            <Content name = {this.state.page} />
+            <Content page = {this.state.page} />
             
            </div>
 
