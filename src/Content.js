@@ -4,7 +4,7 @@ import WaterBreakdown from './WaterBreakdown'
 
 
 class Content extends React.Component{
-    state = {page: 'WaterBreakdown'}
+    state = {page: 'TotalWater'}
     render(){
          if(this.state.page === 'TotalWater'){
              return <TotalWater/>
