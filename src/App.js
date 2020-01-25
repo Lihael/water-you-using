@@ -1,5 +1,6 @@
 import React from 'react';
 import Content from './Content'
+import Tips from './Tip';
 
 class App extends React.Component{
   state = {}
@@ -13,6 +14,7 @@ class App extends React.Component{
   }}> 
             <h1> Welcome to Water You Using!</h1>
             <p >{date.toDateString()}</p>
+            <Tips/>
             <Content/>
             
            </div>
