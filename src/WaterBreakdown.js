@@ -13,7 +13,7 @@ class WaterBreakdown extends React.Component{
         <ReactInterval timeout={1000} enabled={true}
           callback={() => this.setState({count: this.state.count + 1})} />
         <p>lmaoooo</p>
-        <VictoryPie
+        <VictoryPie style={{ labels: { fill: "white" } }}
   data={[
     { x: "Cats", y: 35 },
     { x: "Dogs", y: 40 },
