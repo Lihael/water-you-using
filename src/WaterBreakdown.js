@@ -7,7 +7,6 @@ import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
 
 var request = require('request')
-
 var data = [13,50,40,130,200,800,1000,1500,2000,5000,10000,30000,60000,50000,300000]
 
 //Use this URL for the bar chart breakdown: http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT
@@ -18,7 +17,7 @@ class WaterBreakdown extends React.Component{
         request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/SOMEDATA', function(error,response,body){
             console.log(error)
             console.log(response)
-            data = body
+            //data = body
         })
     }
     

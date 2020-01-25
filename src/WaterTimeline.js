@@ -1,10 +1,16 @@
 import React from 'react'
+import victory from 'victory'
+
+
 var request = require('request')
 var hourlyJSON = null
 var dailyJSON = null
 var weeklyJSON = null
 var monthlyJSON = null
 var yearlyJSON = null
+
+
+
 class WaterTimeline extends React.Component {
     componentDidMount(){
         request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT', function(error,response,body){
