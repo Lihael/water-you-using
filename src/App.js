@@ -33,7 +33,7 @@ class App extends React.Component{
             </div>
             <Content page = {this.state.page} />
             <p><center><font color = "White">Most recent water activity: 
-              Time: {this.state.waterTime}
+              Time: {this.state.waterTime}&nbsp;
               Volume: {this.state.waterVolume}</font></center></p>
             
            </div>
