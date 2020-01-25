@@ -1,6 +1,7 @@
 import React from 'react'
 import {Progress} from 'semantic-ui-react';
 import ReactInterval from 'react-interval';
+import PieChart from 'react-minimal-pie-chart';
 
 
 class WaterBreakdown extends React.Component{
@@ -10,7 +11,14 @@ class WaterBreakdown extends React.Component{
         return <div>
         <ReactInterval timeout={1000} enabled={true}
           callback={() => this.setState({count: this.state.count + 1})} />
-        <Progress progress='value' value={35} total={50} />
+        <p>lmaoooo</p>
+        <PieChart
+  data={[
+    { title: 'One', value: 10, color: '#E38627' },
+    { title: 'Two', value: 15, color: '#C13C37' },
+    { title: 'Three', value: 20, color: '#6A2135' },
+  ]}
+/>;
         </div>
     }
 }
