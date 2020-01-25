@@ -9,7 +9,7 @@ class Tips extends React.Component{
     render(){
         var tipNumber = Math.floor(Math.random() * 5);
         return <div>
-            <p><font color = "#FFFFE0">Tip of the day: {this.state.tips[tipNumber]}</font></p>
+            <p><font color = "#FFFFE0">Tip of the day: {this.state.tips[tipNumber]}</font></p><br />
         </div>
     }
 }

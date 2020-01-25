@@ -31,7 +31,9 @@ class WaterBreakdown extends React.Component{
         
           <VictoryPie
           colorScale = "cool"
-         style={{ labels: { fill: "white" } }}
+         style={{ labels: { fill: "white", fontStyle: "bold"} }}
+         labelRadius={({ innerRadius }) => innerRadius + 70 }
+         labels={({ datum }) => `${datum.x}: ${datum.y}`}
   data={[
     { x: "Toilet", y: this.state.toilet},
     { x: "Faucet", y: this.state.faucet },
@@ -40,14 +42,14 @@ class WaterBreakdown extends React.Component{
 />
 <center><div class="ui teal massive label"><font color = "White">Total Breakdown</font></div></center>
 <VictoryBar
-  barRatio={2}
+  barRatio = {1.5}
   data={[
-    { x: "Toilet", y: this.state.toilet },
-    { x: "Faucet", y: this.state.faucet },
-    { x: "Kitchen", y:this.state.kitchen }
+    { x: "2 Days ago", y: this.state.toilet },
+    { x: "Yesterday", y: this.state.faucet },
+    { x: "Today", y:this.state.kitchen }
   ]}
-  labels={({ datum }) => datum.y}
-  style={{ labels: { fill: "white" } }}
+  labels={({ datum }) => `${datum.x}: ${datum.y}`}
+  style={{ labels: { fill: "white" }, data: { fill: "#ADD8E6" }}}
 />
         </div>
     }
