@@ -13,8 +13,8 @@ class WaterBreakdown extends React.Component{
         return <div>
         <ReactInterval timeout={1000} enabled={true}
           callback={() => this.setState({count: this.state.count + 1})} />
+          <h><text color = "White">Breakdown by Device</text></h>
         <VictoryPie
-        title = "Breakdown by Device"
           colorScale = "cool"
          style={{ labels: { fill: "white" } }}
   data={[
@@ -23,6 +23,7 @@ class WaterBreakdown extends React.Component{
     { x: "Birds", y: 55 }
   ]}
 />
+<h><text color = "White">Total Breakdown</text></h>
 <VictoryBar
   barRatio={2}
   data={[
