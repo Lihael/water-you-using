@@ -3,22 +3,16 @@ import TotalWater from './TotalWater'
 import WaterBreakdown from './WaterBreakdown'
 
 
-class Content extends React.Component{
-    state = {page: 'TotalWater'}
-    render(props){
-        this.setState(props)
-
-         if(this.state.page === 'TotalWater'){
-             return <TotalWater/>
-         }
-         else if(this.state.page === 'WaterBreakdown'){
-             return <WaterBreakdown/>
-         }
-         else{
-             return <p></p>
-         }
+function Content(props){
+    if(props.page === 'TotalWater'){
+        return <TotalWater/>
     }
-
+    else if(props.page === 'WaterBreakdown'){
+        return <WaterBreakdown/>
+    }
+    else{
+        return <p></p>
+    }
 }
 
 
