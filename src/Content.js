@@ -1,11 +1,22 @@
 import React from 'react'
-import TotalWater from './TotalWater.js'
+import TotalWater from './TotalWater'
+import WaterBreakdown from './WaterBreakdown'
+
 
 class Content extends React.Component{
-    state = {page: ''}
-    render(props){
-        return <TotalWater/>    
+    state = {page: 'TotalWater'}
+    render(){
+         if(this.state.page === 'TotalWater'){
+             return <TotalWater/>
+         }
+         else if(this.state.page === 'WaterBreakDown'){
+             return <WaterBreakdown/>
+         }
+         else{
+             return <p></p>
+         }
     }
+
 }
 
 
