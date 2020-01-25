@@ -9,7 +9,7 @@ var weeklyJSON = null
 var monthlyJSON = null
 var yearlyJSON = null
 
-//http://dorm.buttersalt.me:5000/lasthourvolume/mitchell/testpassmitchell/bathroom
+//http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom
 //Returns a float with the water usage in the last hour for "bathroom"
 
 

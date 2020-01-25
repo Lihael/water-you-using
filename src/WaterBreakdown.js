@@ -7,7 +7,7 @@ import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
 
 var request = require('request')
-var data = [13,50,40,130,200,800,1000,1500,2000,5000,10000,30000,60000,50000,300000]
+//var data = [13,50,40,130,200,800,1000,1500,2000,5000,10000,30000,60000,50000,300000]
 
 //Use this URL for the bar chart breakdown: http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT
 //Use this URL for the pie chart breakdown (breakdown by device): http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/toilet/DAILY_DATA_POINT
@@ -23,33 +23,45 @@ class WaterBreakdown extends React.Component{
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     setTimeFrame(optionChoice) {
-        var startIndex = 0;
+        var timeIndex = 0;
+        var kitchenData = [0,1,2,3,4]
+        var toiletData = [0,1,2,3,4]
+        var faucetData = [0,1,2,3,4]
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/KITCHEN', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            kitchenData = body;})
+        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            toiletData = body;})
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/FAUCET', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            faucetData = body;})
         if(optionChoice === 'hourly'){
-            startIndex = 0;
+            timeIndex = 0;
+        }
             //JSON file will return all water events in the last day
             //Therefore, this method should loop through all provided objects and 
-        }
+        
         else if(optionChoice === 'daily'){
-            startIndex = 3;
+            timeIndex = 1;
         }
         else if(optionChoice === 'weekly') {
-            startIndex = 6;
+            timeIndex = 2
         }
         else if(optionChoice === 'monthly') {
-            startIndex = 9;
+            timeIndex = 3
         }
         else {
-            startIndex = 12;
+            timeIndex = 4
         }
-        var toilet = data[startIndex]
-        var faucet = data[startIndex + 1]
-        var kitchen = data[startIndex + 2]
-
         this.setState({
           option: optionChoice,
-          toilet: toilet,
-          faucet: faucet,
-          kitchen: kitchen
+          toilet: toiletData[timeIndex],
+          faucet: faucetData[timeIndex],
+          kitchen: kitchenData[timeIndex]
         })
       }
 
