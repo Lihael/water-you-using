@@ -5,7 +5,6 @@ import {Button} from 'semantic-ui-react'
 
 
 
-
 class App extends React.Component{
   state = {page: 'TotalWater', waterTime: "19:20",waterVolume: 100}
   setButton(pageSet) {
@@ -28,9 +27,9 @@ class App extends React.Component{
             
             <Tips/>
             <div className = "buttons" style = {{display:'flex', flexDirection: 'row'}}>
-              <Button secondary onClick={() => this.setButton('WaterBreakdown')}>Water Breakdown</Button>
-              <Button primary onClick={() => this.setButton('TotalWater')}>Total Water</Button>
-              <Button secondary onClick={() => this.setButton('WaterTimeline')}>Water Timeline</Button>
+              <Button secondary onClick={() => this.setButton('WaterBreakdown')}> Water Breakdown</Button>
+              <Button primary onClick={() => this.setButton('TotalWater')}> Total Water</Button>
+              <Button secondary onClick={() => this.setButton('WaterTimeline')}> Water Timeline</Button>
             </div>
             <Content page = {this.state.page} />
             <p><center><font color = "White">Most recent water activity: 
