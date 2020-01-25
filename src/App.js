@@ -1,5 +1,6 @@
 import React from 'react';
-import Content from './Content.js';
+
+
 
 
 class App extends React.Component{
@@ -16,6 +17,7 @@ class App extends React.Component{
             <p >{date.toDateString()}</p>
             <Content />
            </div>
+
   }
 }
 
