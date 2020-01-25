@@ -1,5 +1,5 @@
 import React from 'react'
-import semReact from 'semantic-ui-react'
+import semReact from 'semantic-ui-react';
 import ReactInterval from 'react-interval';
 
 
