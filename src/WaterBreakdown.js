@@ -9,9 +9,8 @@ import {VictoryBar} from 'victory';
 class WaterBreakdown extends React.Component{
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     render(){
-        const time = this.state.time
-        return <div>
         
+        return <div>
         <VictoryPie
           colorScale = "cool"
          style={{ labels: { fill: "white" } }}
