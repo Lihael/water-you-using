@@ -15,6 +15,7 @@
     "react-minimal-pie-chart": "^6.0.1",
     "react-native-svg": "^11.0.1",
     "react-scripts": "3.3.0",
+    "request": "^2.88.0",
     "semantic-ui-react": "^0.88.2",
     "victory": "^34.0.1"
   },
