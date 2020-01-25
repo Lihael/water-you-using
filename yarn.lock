@@ -11236,7 +11236,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -11530,6 +11530,18 @@ fsevents@^1.2.7:
   version: 6.0.4
   resolution: "react-error-overlay@npm:6.0.4"
   checksum: b7323d91f8e9fea6aee14c9c98e88ffc93787abbf921a2a5209e1f1d73d5cc5444d83c99e5459c3f7a235ac877d225a6d275927d3cafa9d0fba0cf2d4242d7eb
+  languageName: node
+  linkType: hard
+
+"react-interval@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "react-interval@npm:2.1.1"
+  dependencies:
+    prop-types: ^15.6.0
+  peerDependencies:
+    "@types/react": ^15.0.0 || ^16.0.0
+    react: ^15.3.0 || ^16.0.0
+  checksum: 6d35d1ce3ed55c83ec598d886d74af81e707df1b6b91b7bb4fab045a6160321209c89e73e613f67fa8f63e35851527135c79c2027c68a0f85c5b44fc2a55298e
   languageName: node
   linkType: hard
 
@@ -14102,6 +14114,7 @@ resolve@^1.13.1:
     react: ^16.12.0
     react-circular-progressbar: ^2.0.3
     react-dom: ^16.12.0
+    react-interval: ^2.1.1
     react-native-svg: ^11.0.1
     react-scripts: 3.3.0
     semantic-ui-react: ^0.88.2
