@@ -40,7 +40,16 @@ class WaterBreakdown extends React.Component{
     { x: "Kitchen", y: this.state.kitchen }
   ]}
 />
-<center><div class="ui teal massive label"><font color = "White">Total Breakdown</font></div></center>
+<center><div class="ui teal massive label"><font color = "White">Total Breakdown: {this.state.option}</font></div></center><br />
+<center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />
+      <Dropdown.Item text='Past Day' onClick = {() => this.setTimeFrame('daily')}/>
+      <Dropdown.Item text='Past Week' onClick = {() => this.setTimeFrame('weekly')}/>
+      <Dropdown.Item text='Past Month' onClick = {() => this.setTimeFrame('monthly')}/>
+      <Dropdown.Item text='Past Years' onClick = {() => this.setTimeFrame('yearly')}/>
+    </Dropdown.Menu>
+  </Dropdown> </div><br /></center>
 <VictoryBar
   barRatio = {1.5}
   data={[
