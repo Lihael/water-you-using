@@ -24,7 +24,7 @@ class WaterTimeline extends React.Component {
     }
 
     render(){
-        return <div>
+        return <div><br />
          <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
         <center>
             <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
@@ -37,7 +37,7 @@ class WaterTimeline extends React.Component {
                 </Dropdown.Menu>
             </Dropdown> 
             </div><br />
-        </center>
+        </center><br />
         
         </div>
     }
