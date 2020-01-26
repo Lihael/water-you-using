@@ -15,6 +15,18 @@ class App extends React.Component{
   }
   render(){
     const date = new Date()
+    //get last water text info
+    var lastWater
+    var lastWaterText
+    var http_req = new XMLHttpRequest();
+        http_req.open("GET",'http://dorm.buttersalt.me:5000/getlastevent/mitchell/testpassmitchell',false);
+        http_req.send(null);
+        lastWater = JSON.parse(http_req.responseText)
+        lastWaterText = lastWater[0].text
+    
+        
+
+        
     
     return <div className="App" style={{
       display: 'flex',
@@ -32,10 +44,7 @@ class App extends React.Component{
               <Button secondary onClick={() => this.setButton('WaterTimeline')}> Water Timeline</Button>
             </div>
             <Content page = {this.state.page} />
-            <p><center><font color = "White"><b>Most recent water activity: </b>
-              Time: {this.state.waterTime}&nbsp;
-              Volume: {this.state.waterVolume}</font></center></p>
-            
+            <p><center><font color = "White">{lastWaterText}</font></center></p>
            </div>
 
   }

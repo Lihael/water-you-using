@@ -48,7 +48,9 @@ class WaterBreakdown extends React.Component{
         http_req3.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet',false);
         http_req3.send(null);
         json3 = http_req3.responseText
+        console.log(json3)
         json3 = JSON.parse(json3)
+        console.log(json3)
         faucetData[0] = json3[0].hour
         faucetData[1] = json3[0].day
         faucetData[2] = json3[0].week
@@ -77,13 +79,22 @@ class WaterBreakdown extends React.Component{
         else {
             timeIndex = 4
         }
-        
-        this.setState({
-          option: optionChoice,
-          kitchen: kitchenData[timeIndex],
-          toilet: toiletData[timeIndex],
-          faucet: faucetData[timeIndex]
-        })
+        if(kitchenData[timeIndex] === 0 && toiletData[timeIndex] === 0 && faucetData[timeIndex] === 0){
+          this.setState({
+            option: optionChoice,
+            kitchen: 1,
+            toilet: 1,
+            faucet: 1
+          })
+        }
+        else{ 
+          this.setState({
+            option: optionChoice,
+            kitchen: kitchenData[timeIndex],
+            toilet: toiletData[timeIndex],
+            faucet: faucetData[timeIndex]
+          })
+        }
       }
 
     render(){  
