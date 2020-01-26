@@ -6,7 +6,7 @@ import WaterTimeline from './WaterTimeline'
 
 function Content(props){
     if(props.page === 'TotalWater'){
-        return <TotalWater/>
+        return <TotalWater domain = {props.domain}/>
     }
     else if(props.page === 'WaterBreakdown'){
         return <WaterBreakdown domain = {props.domain}/>

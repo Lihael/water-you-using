@@ -138,7 +138,7 @@ class WaterTimeline extends React.Component {
     render(){
         if(this.state.option === 'hourly'){
             return <div><br/>
-            <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
+            <center><div class="ui teal massive label"><font color = "White">             Water Usage by Hour, Past 24 Hours             </font></div></center><br/>
             <center>
                 <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
                 <Dropdown.Menu>
@@ -206,7 +206,7 @@ class WaterTimeline extends React.Component {
         }
         else {
             return <div><br/>
-            <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
+            <center><div class="ui teal massive label"><font color = "White">             Water Usage by Day, Past Week             </font></div></center><br/>
             <center>
                 <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
                 <Dropdown.Menu>
