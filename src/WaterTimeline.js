@@ -151,7 +151,6 @@ class WaterTimeline extends React.Component {
             </center><br />
             <VictoryChart>
             <VictoryLine
-                width ={1300}
                 style={{ data: { stroke: "#dce8fc", strokeWidth: 5} }}
                 data={[
                     { x: hoursToday[23] , y: hourly[0]},
@@ -185,18 +184,20 @@ class WaterTimeline extends React.Component {
                 orientation="bottom"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30, fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
+                    axisLabel: {fontSize: 15, padding: 30, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 10, fill:"#dce8fc"}
                     }}
                 scale = {{x:"time"}}
             />
             <VictoryAxis dependentAxis
+            height = {1000}
+            width = {1000}
                 label="Volume(Gallons)"
                 orientation="left"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 35, fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
+                    axisLabel: {fontSize: 15, padding: 35, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 10, fill:"#dce8fc"}
                     }}
                 scale = {{y:"linear"}}
             />
@@ -235,8 +236,8 @@ class WaterTimeline extends React.Component {
                 orientation="bottom"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30, fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
+                    axisLabel: {fontSize: 15, padding: 30, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 10, fill:"#dce8fc"}
                     }}
                 scale = {{x: "time"}}
             />
@@ -245,8 +246,8 @@ class WaterTimeline extends React.Component {
                 scale ={{y:"linear"}}
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 35,fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
+                    axisLabel: {fontSize: 15, padding: 35,fill:"#dce8fc"},
+                    tickLabels: {fontSize: 8, fill:"#dce8fc"}
                     }}
                 orientation="left"
             />
