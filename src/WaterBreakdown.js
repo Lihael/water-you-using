@@ -6,6 +6,7 @@ import {VictoryPie} from 'victory';
 import {VictoryBar} from 'victory';
 import {Dropdown} from 'semantic-ui-react'
 
+
 var request = require('request')
 
 let kitchenData = [0.0,1.0,2.0,3.0,4.0]
@@ -53,7 +54,7 @@ class WaterBreakdown extends React.Component{
         faucetData[2] = json3[0].week
         faucetData[3] = json3[0].month
         faucetData[4] = json3[0].year
-        
+        this.setTimeFrame('hourly')
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
@@ -108,9 +109,9 @@ class WaterBreakdown extends React.Component{
          labelRadius={({ innerRadius }) => innerRadius + 70 }
          labels={({ datum }) => `${datum.x}: ${datum.y}`}
   data={[
-    { x: "Toilet", y: this.state.toilet},
-    { x: "Faucet", y: this.state.faucet },
-    { x: "Kitchen", y: this.state.kitchen }
+    { x: "Toilet", y: Math.round(this.state.toilet)},
+    { x: "Faucet", y: Math.round(this.state.faucet) },
+    { x: "Kitchen", y: Math.round(this.state.kitchen) }
   ]}
 />
 <center><div class="ui teal massive label"><font color = "White">Total Breakdown: {this.state.option}</font></div></center><br />
@@ -130,9 +131,9 @@ animate={{
 }}
   barRatio = {1.5}
   data={[
-    { x: "Toilet", y: this.state.toilet },
-    { x: "Faucet", y: this.state.faucet },
-    { x: "Kitchen", y:this.state.kitchen }
+    { x: "Toilet", y: Math.round(this.state.toilet) },
+    { x: "Faucet", y: Math.round(this.state.faucet) },
+    { x: "Kitchen", y: Math.round(this.state.kitchen) }
   ]}
   labels={({ datum }) => `${datum.x}: ${datum.y}`}
   style={{ labels: { fill: "white" }, data: { fill: "#ADD8E6" }}}
