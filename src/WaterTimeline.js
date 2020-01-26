@@ -2,9 +2,20 @@ import React from 'react'
 import {VictoryChart, VictoryLine} from 'victory'
 import {Dropdown} from 'semantic-ui-react'
 
-var request = require('request')
 var hourlyJSON = null
 var dailyJSON = null
+var weeklyJSON = null
+var monthlyJSON = null
+var yearlyJSON = null
+var hourly = []
+var daily = []
+var weekly = []
+var monthly = []
+var yearly = []
+
+const date = new Date()
+const today = date.getDay()
+const thisHour = date.getHours()
 
 
 //http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom
@@ -18,9 +29,52 @@ class WaterTimeline extends React.Component {
         //...this.state,
         option: optionChoice})
     }
-
+    
     componentDidMount(){
-        //parse json data
+        //parse hours JSON
+        var http_req = new XMLHttpRequest();
+        http_req.open("GET",'http://dorm.buttersalt.me:5000/breakdown/mitchell/testpassmitchell/HOURLY_DATA_POINT',false);
+        http_req.send(null);
+        hourlyJSON = JSON.parse(http_req.responseText)
+        //parse hours
+        hourly[0] = hourlyJSON[0].h1
+        hourly[1] = hourlyJSON[0].h2
+        hourly[2] = hourlyJSON[0].h3
+        hourly[3] = hourlyJSON[0].h4
+        hourly[4] = hourlyJSON[0].h5
+        hourly[5] = hourlyJSON[0].h6
+        hourly[6] = hourlyJSON[0].h7
+        hourly[7] = hourlyJSON[0].h8
+        hourly[8] = hourlyJSON[0].h9
+        hourly[9] = hourlyJSON[0].h10
+        hourly[10] = hourlyJSON[0].h11
+        hourly[11] = hourlyJSON[0].h12
+        hourly[12] = hourlyJSON[0].h13
+        hourly[13] = hourlyJSON[0].h14
+        hourly[14] = hourlyJSON[0].h15
+        hourly[15] = hourlyJSON[0].h16
+        hourly[16] = hourlyJSON[0].h17
+        hourly[17] = hourlyJSON[0].h18
+        hourly[18] = hourlyJSON[0].h19
+        hourly[19] = hourlyJSON[0].h20
+        hourly[20] = hourlyJSON[0].h21
+        hourly[21] = hourlyJSON[0].h22
+        hourly[22] = hourlyJSON[0].h23
+        hourly[23] = hourlyJSON[0].h24
+
+        //parse daily JSON
+        var http_req2 = new XMLHttpRequest();
+        http_req2.open("GET",'http://dorm.buttersalt.me:5000/breakdown/mitchell/testpassmitchell/DAILY_DATA_POINT',false);
+        http_req2.send(null);
+        dailyJSON = JSON.parse(http_req2.responseText)
+        //parse days
+        daily[0] = dailyJSON[0].d1
+        daily[1] = dailyJSON[0].d2
+        daily[2] = dailyJSON[0].d3
+        daily[3] = dailyJSON[0].d4
+        daily[4] = dailyJSON[0].d5
+        daily[5] = dailyJSON[0].d6
+        daily[6] = dailyJSON[0].d7
     }
 
     render(){
