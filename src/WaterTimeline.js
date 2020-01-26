@@ -16,6 +16,53 @@ var yearly = []
 const date = new Date()
 const today = date.getDay()
 const thisHour = date.getHours()
+const hoursToday = []
+const todayThisWeek = []
+
+var x = thisHour;
+for(var i = 0; i < 24;i++){
+    if (x < 0) {
+        x = 23;
+        hoursToday[i] = x;
+        x--;
+    }
+    else {
+        hoursToday[i] = x;
+        x--;
+    }
+}
+var y = today
+for(var i = 0; i < 7; i++){
+    if(y < 0){
+        y = 6
+    }
+    switch(y){
+        case 0:
+            todayThisWeek[i] = 'Sunday';
+            break;
+        case 1:
+            todayThisWeek[i] = 'Monday';
+            break;
+        case 2:
+            todayThisWeek[i] = 'Tuesday';
+            break;
+        case 3:
+            todayThisWeek[i] = 'Wednesday';
+            break;
+        case 4:
+            todayThisWeek[i] = 'Thursday';
+            break;
+        case 5: 
+            todayThisWeek[i] = 'Friday';
+            break;
+        case 6: 
+            todayThisWeek[i] = 'Saturday'
+            break;
+        default:
+            todayThisWeek[i] = 'Monday'
+    }
+    y--
+}
 
 
 //http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom
@@ -86,6 +133,7 @@ class WaterTimeline extends React.Component {
                 <Dropdown.Menu>
                     <Dropdown.Item text='24 Hours' onClick = {() => this.setTimeFrame('hourly')} />
                     <Dropdown.Item text='7 Days' onClick = {() => this.setTimeFrame('daily')}/>
+                    
                     </Dropdown.Menu>
                 </Dropdown> 
                 </div><br />
@@ -93,11 +141,30 @@ class WaterTimeline extends React.Component {
             <VictoryChart>
             <VictoryLine
                 data={[
-                { x: 10, y: 10 },
-                { x: 2, y: 3 },
-                { x: 3, y: 5 },
-                { x: 4, y: 4 },
-                { x: 5, y: 6 }
+                    { x: hoursToday[23] , y: hourly[0]},
+                    { x: hoursToday[22] , y: hourly[1]},
+                    { x: hoursToday[21] , y: hourly[2]},
+                    { x: hoursToday[20] , y: hourly[3]},
+                    { x: hoursToday[19] , y: hourly[4]},
+                    { x: hoursToday[18] , y: hourly[5]},
+                    { x: hoursToday[17] , y: hourly[6]},
+                    { x: hoursToday[16] , y: hourly[7]},
+                    { x: hoursToday[15] , y: hourly[8]},
+                    { x: hoursToday[14] , y: hourly[9]},
+                    { x: hoursToday[13] , y: hourly[10]},
+                    { x: hoursToday[12] , y: hourly[11]},
+                    { x: hoursToday[11] , y: hourly[12]},
+                    { x: hoursToday[10] , y: hourly[13]},
+                    { x: hoursToday[9] , y: hourly[14]},
+                    { x: hoursToday[8] , y: hourly[15]},
+                    { x: hoursToday[7] , y: hourly[16]},
+                    { x: hoursToday[6] , y: hourly[17]},
+                    { x: hoursToday[5] , y: hourly[18]},
+                    { x: hoursToday[4] , y: hourly[19]},
+                    { x: hoursToday[3] , y: hourly[20]},
+                    { x: hoursToday[2] , y: hourly[21]},
+                    { x: hoursToday[1] , y: hourly[22]},
+                    { x: hoursToday[0] , y: hourly[23]}
                 ]}
             />
             </VictoryChart>
@@ -118,11 +185,13 @@ class WaterTimeline extends React.Component {
             <VictoryChart>
             <VictoryLine
                 data={[
-                { x: 1, y: 2 },
-                { x: 2, y: 3 },
-                { x: 3, y: 5 },
-                { x: 4, y: 4 },
-                { x: 5, y: 6 }
+                { x: todayThisWeek[6], y: daily[0]},
+                { x: todayThisWeek[5], y: daily[1]},
+                { x: todayThisWeek[4], y: daily[2]},
+                { x: todayThisWeek[3], y: daily[3]},
+                { x: todayThisWeek[2], y: daily[4]},
+                { x: todayThisWeek[1], y: daily[5]},
+                { x: todayThisWeek[0], y: daily[6]}
                 ]}
             />
             </VictoryChart>
