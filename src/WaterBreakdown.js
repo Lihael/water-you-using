@@ -11,6 +11,9 @@ var request = require('request')
 let kitchenData = [0.0,1.0,2.0,3.0,4.0]
 let toiletData = [0.0,1.0,2.0,3.0,4.0]
 let faucetData = [0.0,1.0,2.0,3.0,4.0]
+let json1
+let json2
+let json3
 //var data = [13,50,40,130,200,800,1000,1500,2000,5000,10000,30000,60000,50000,300000]
 
 //Use this URL for the bar chart breakdown: http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT
@@ -18,20 +21,38 @@ let faucetData = [0.0,1.0,2.0,3.0,4.0]
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/KITCHEN', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            console.log(body)
-            kitchenData[0] = body[0].day;})
-        console.log(kitchenData[0])
-        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            toiletData = body;})
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/FAUCET', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            faucetData = body;})
+        var http_req = new XMLHttpRequest();
+        http_req.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen',false);
+        http_req.send(null);
+        json1 = http_req.responseText
+        json1 = JSON.parse(json1)
+        kitchenData[0] = json1[0].hour
+        kitchenData[1] = json1[0].day
+        kitchenData[2] = json1[0].week
+        kitchenData[3] = json1[0].month
+        kitchenData[4] = json1[0].year
+
+        var http_req2 = new XMLHttpRequest();
+        http_req2.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom',false);
+        http_req2.send(null);
+        json2 = http_req2.responseText
+        json2 = JSON.parse(json2)
+        toiletData[0] = json2[0].hour
+        toiletData[1] = json2[0].day
+        toiletData[2] = json2[0].week
+        toiletData[3] = json2[0].month
+        toiletData[4] = json2[0].year
+
+        var http_req3 = new XMLHttpRequest();
+        http_req3.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet',false);
+        http_req3.send(null);
+        json3 = http_req3.responseText
+        json3 = JSON.parse(json3)
+        faucetData[0] = json3[0].hour
+        faucetData[1] = json3[0].day
+        faucetData[2] = json3[0].week
+        faucetData[3] = json3[0].month
+        faucetData[4] = json3[0].year
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}

@@ -5,9 +5,7 @@ import {Dropdown} from 'semantic-ui-react'
 var request = require('request')
 var hourlyJSON = null
 var dailyJSON = null
-var weeklyJSON = null
-var monthlyJSON = null
-var yearlyJSON = null
+
 
 //http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom
 //Returns a float with the water usage in the last hour for "bathroom"
@@ -31,21 +29,6 @@ class WaterTimeline extends React.Component {
             console.log(error)
             console.log(response)
             hourlyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/WEEKLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            weeklyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/MONTHLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            monthlyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/YEARLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            yearlyJSON = body
         })
         //parse json data
     }
