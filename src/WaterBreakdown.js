@@ -53,6 +53,7 @@ class WaterBreakdown extends React.Component{
         faucetData[2] = json3[0].week
         faucetData[3] = json3[0].month
         faucetData[4] = json3[0].year
+        
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
