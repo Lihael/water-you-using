@@ -45,57 +45,6 @@ function eraseCookie(name) {
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
-<<<<<<< HEAD
-        this.setTimeFrame('hourly')
-        fetch('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen')
-            .then(response => response.json())
-            .then((jsonData) => {
-                console.log(jsonData)
-                json1 = jsonData
-                console.log(json1)
-                setCookie("kitchen", json1[0].hour, 5);
-            })
-            .catch((error) => {
-                // handle your errors here
-                console.error(error)
-            })
-        console.log(json1)
-        // kitchenData[0] = parseFloat(json1[0].hour)
-        // kitchenData[1] = parseFloat(json1[0].day)
-        // kitchenData[2] = parseFloat(json1[0].week)
-        // kitchenData[3] = parseFloat(json1[0].month)
-        // kitchenData[4] = parseFloat(json1[0].year)
-        console.log(kitchenData)
-        console.log("KitchenData1 outside: " + kitchenData[1]);
-        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            json2 = JSON.parse(body);
-            
-        })
-        // toiletData[0] = parseFloat(json2[0].hour)
-        // toiletData[1] = parseFloat(json2[0].day)
-        // toiletData[2] = parseFloat(json2[0].week)
-        // toiletData[3] = parseFloat(json2[0].month)
-        // toiletData[4] = parseFloat(json2[0].year)
-        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet', function(error,response,body){
-            console.log(error)
-            console.log(response) 
-            json3 = JSON.parse(body);   
-            
-        })
-        // faucetData[0] = parseFloat(json3[0].hour)
-        // faucetData[1] = parseFloat(json3[0].day)
-        // faucetData[2] = parseFloat(json3[0].week)
-        // faucetData[3] = parseFloat(json3[0].month)
-        // faucetData[4] = parseFloat(json3[0].year)
-        
-    }
-    
-    state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
-    setTimeFrame(optionChoice) {
-        var timeIndex = 0;
-=======
         request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/SOMEDATA', function(error,response,body){
             console.log(error)
             console.log(response)
@@ -121,7 +70,6 @@ class WaterBreakdown extends React.Component{
             console.log(error)
             console.log(response)
             faucetData = body;})
->>>>>>> parent of 0ed645d... final request commit
         if(optionChoice === 'hourly'){
             timeIndex = 0;
         }
