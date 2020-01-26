@@ -25,16 +25,12 @@ class WaterBreakdown extends React.Component{
         http_req.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen',false);
         http_req.send(null);
         json1 = http_req.responseText
-        console.log(json1)
         json1 = JSON.parse(json1)
-        console.log(json1)
         kitchenData[0] = json1[0].hour
         kitchenData[1] = json1[0].day
         kitchenData[2] = json1[0].week
         kitchenData[3] = json1[0].month
         kitchenData[4] = json1[0].year
-        
-        
 
         var http_req2 = new XMLHttpRequest();
         http_req2.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom',false);
@@ -46,8 +42,7 @@ class WaterBreakdown extends React.Component{
         toiletData[2] = json2[0].week
         toiletData[3] = json2[0].month
         toiletData[4] = json2[0].year
-        console.log(json2)
-
+        
         var http_req3 = new XMLHttpRequest();
         http_req3.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet',false);
         http_req3.send(null);
@@ -58,7 +53,6 @@ class WaterBreakdown extends React.Component{
         faucetData[2] = json3[0].week
         faucetData[3] = json3[0].month
         faucetData[4] = json3[0].year
-        console.log(json3)
     }
     
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
