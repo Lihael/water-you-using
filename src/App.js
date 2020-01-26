@@ -45,7 +45,7 @@ class App extends React.Component{
               <Button secondary onClick={() => this.setButton('WaterTimeline')}> Water Timeline</Button>
             </div>
             <Content page = {this.state.page} domain = {domainName}/>
-            <p><center><font color = "White">{lastWaterText}</font></center></p>
+            <p><center><font color = "White">{lastWaterText}</font></center><br /><br /></p>
            </div>
 
   }
