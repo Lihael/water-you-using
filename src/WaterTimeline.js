@@ -78,25 +78,64 @@ class WaterTimeline extends React.Component {
     }
 
     render(){
-        return <div><br />
-         <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
-        <center>
-            <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
-            <Dropdown.Menu>
-                <Dropdown.Item text='24 Hours' onClick = {() => this.setTimeFrame('hourly')} />
-                <Dropdown.Item text='7 Days' onClick = {() => this.setTimeFrame('daily')}/>
-                <Dropdown.Item text='4 Weeks' onClick = {() => this.setTimeFrame('weekly')}/>
-                <Dropdown.Item text='12 Months' onClick = {() => this.setTimeFrame('monthly')}/>
-                <Dropdown.Item text='10 Years' onClick = {() => this.setTimeFrame('yearly')}/>
-                </Dropdown.Menu>
-            </Dropdown> 
-            </div><br />
-        </center><br />
+        if(this.state.option === 'hourly'){
+            return <div><br/>
+            <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
+            <center>
+                <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
+                <Dropdown.Menu>
+                    <Dropdown.Item text='24 Hours' onClick = {() => this.setTimeFrame('hourly')} />
+                    <Dropdown.Item text='7 Days' onClick = {() => this.setTimeFrame('daily')}/>
+                    </Dropdown.Menu>
+                </Dropdown> 
+                </div><br />
+            </center><br />
+            <VictoryChart>
+            <VictoryLine
+                data={[
+                { x: 1, y: 2 },
+                { x: 2, y: 3 },
+                { x: 3, y: 5 },
+                { x: 4, y: 4 },
+                { x: 5, y: 6 }
+                ]}
+            />
+            </VictoryChart>
+            </div>
+        }
+        else {
+            return <div><br/>
+            <center><div class="ui teal massive label"><font color = "White">Breakdown by Device: {this.state.option}</font></div></center><br/>
+            <center>
+                <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
+                <Dropdown.Menu>
+                    <Dropdown.Item text='24 Hours' onClick = {() => this.setTimeFrame('hourly')} />
+                    <Dropdown.Item text='7 Days' onClick = {() => this.setTimeFrame('daily')}/>
+                    </Dropdown.Menu>
+                </Dropdown> 
+                </div><br />
+            </center><br />
+            <VictoryChart>
+            <VictoryLine
+                data={[
+                { x: 1, y: 2 },
+                { x: 2, y: 3 },
+                { x: 3, y: 5 },
+                { x: 4, y: 4 },
+                { x: 5, y: 6 }
+                ]}
+            />
+            </VictoryChart>
+            </div>
+        }
         
-        </div>
     }
 
 }
+
+//<Dropdown.Item text='4 Weeks' onClick = {() => this.setTimeFrame('weekly')}/>
+//<Dropdown.Item text='12 Months' onClick = {() => this.setTimeFrame('monthly')}/>
+//<Dropdown.Item text='10 Years' onClick = {() => this.setTimeFrame('yearly')}/>
 
 
 export default WaterTimeline
