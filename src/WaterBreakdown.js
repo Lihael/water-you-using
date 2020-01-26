@@ -112,7 +112,7 @@ class WaterBreakdown extends React.Component{
         
           <VictoryPie
           animate={{
-            duration: 2000,
+            duration: 1000,
             easing: "bounce"
           }}
           colorScale = "cool"
@@ -137,7 +137,7 @@ class WaterBreakdown extends React.Component{
   </Dropdown> </div><br /></center>
 <VictoryBar
 animate={{
-  duration: 2000,
+  duration: 1000,
   easing: "bounce"
 }}
   barRatio = {1.5}
