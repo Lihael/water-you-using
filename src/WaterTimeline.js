@@ -93,7 +93,7 @@ class WaterTimeline extends React.Component {
             <VictoryChart>
             <VictoryLine
                 data={[
-                { x: 1, y: 2 },
+                { x: 10, y: 10 },
                 { x: 2, y: 3 },
                 { x: 3, y: 5 },
                 { x: 4, y: 4 },
