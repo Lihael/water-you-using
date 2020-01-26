@@ -20,16 +20,6 @@ class WaterTimeline extends React.Component {
     }
 
     componentDidMount(){
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/DAILY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            dailyJSON = body
-        })
-        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/HOURLY_DATA_POINT', function(error,response,body){
-            console.log(error)
-            console.log(response)
-            hourlyJSON = body
-        })
         //parse json data
     }
 
