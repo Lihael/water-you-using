@@ -171,8 +171,17 @@ class WaterTimeline extends React.Component {
                 ]}
             />
             <VictoryAxis
-                label="Time (ms)"
+                label="Hours"
+                orientation="bottom"
+                scale = {{x:"time"}}
             />
+            <VictoryAxis dependentAxis
+                label="Volume(Gallons)"
+                orientation="left"
+                scale = {{y:"linear"}}
+
+            />
+            
             </VictoryChart>
             </div>
         }
@@ -199,6 +208,16 @@ class WaterTimeline extends React.Component {
                 { x: todayThisWeek[1], y: daily[5]},
                 { x: todayThisWeek[0], y: daily[6]}
                 ]}
+            />
+            <VictoryAxis
+                label="Day"
+                orientation="bottom"
+                scale = {{x: "time"}}
+            />
+            <VictoryAxis dependentAxis
+                label="Volume(Gallons)"
+                scale ={{y:"linear"}}
+                orientation="left"
             />
             </VictoryChart>
             </div>
