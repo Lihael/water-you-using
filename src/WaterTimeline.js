@@ -70,17 +70,24 @@ for(var i = 0; i < 7; i++){
 
 
 class WaterTimeline extends React.Component {
-    state = {option: 'hourly'}
+    constructor(props) {
+        super(props);
+        this.state = {
+            option: 'hourly',
+            domain: props.domain
+        };
+      }
+
     setTimeFrame(optionChoice) {
         this.setState({
-        //...this.state,
+        ...this.state,
         option: optionChoice})
     }
     
     componentDidMount(){
         //parse hours JSON
         var http_req = new XMLHttpRequest();
-        http_req.open("GET",'http://dorm.buttersalt.me:5000/breakdown/mitchell/testpassmitchell/HOURLY_DATA_POINT',false);
+        http_req.open("GET",this.state.domain + 'breakdown/mitchell/testpassmitchell/HOURLY_DATA_POINT',false);
         http_req.send(null);
         hourlyJSON = JSON.parse(http_req.responseText)
         //parse hours
@@ -111,7 +118,7 @@ class WaterTimeline extends React.Component {
 
         //parse daily JSON
         var http_req2 = new XMLHttpRequest();
-        http_req2.open("GET",'http://dorm.buttersalt.me:5000/breakdown/mitchell/testpassmitchell/DAILY_DATA_POINT',false);
+        http_req2.open("GET",this.state.domain + 'breakdown/mitchell/testpassmitchell/DAILY_DATA_POINT',false);
         http_req2.send(null);
         dailyJSON = JSON.parse(http_req2.responseText)
         //parse days

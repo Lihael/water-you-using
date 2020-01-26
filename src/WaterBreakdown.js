@@ -21,9 +21,19 @@ let json3
 //Use this URL for the pie chart breakdown (breakdown by device): http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/toilet/DAILY_DATA_POINT
 
 class WaterBreakdown extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      option: 'hourly', 
+      toilet: 35, 
+      faucet: 40, 
+      kitchen: 55,
+      domain: props.domain
+    };
+  }
     componentDidMount(){
         var http_req = new XMLHttpRequest();
-        http_req.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen',false);
+        http_req.open("GET",this.state.domain + 'lasttimevolume/mitchell/testpassmitchell/kitchen',false);
         http_req.send(null);
         json1 = http_req.responseText
         json1 = JSON.parse(json1)
@@ -34,7 +44,7 @@ class WaterBreakdown extends React.Component{
         kitchenData[4] = json1[0].year
 
         var http_req2 = new XMLHttpRequest();
-        http_req2.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom',false);
+        http_req2.open("GET",this.state.domain + 'lasttimevolume/mitchell/testpassmitchell/bathroom',false);
         http_req2.send(null);
         json2 = http_req2.responseText
         json2 = JSON.parse(json2)
@@ -45,7 +55,7 @@ class WaterBreakdown extends React.Component{
         toiletData[4] = json2[0].year
         
         var http_req3 = new XMLHttpRequest();
-        http_req3.open("GET",'http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/faucet',false);
+        http_req3.open("GET",this.state.domain + 'lasttimevolume/mitchell/testpassmitchell/faucet',false);
         http_req3.send(null);
         json3 = http_req3.responseText
         console.log(json3)
@@ -59,7 +69,7 @@ class WaterBreakdown extends React.Component{
         this.setTimeFrame('hourly')
     }
     
-    state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
+    
     setTimeFrame(optionChoice) {
         var timeIndex = 0;
             //JSON file will return all water events in the last day
@@ -81,6 +91,7 @@ class WaterBreakdown extends React.Component{
         }
         if(kitchenData[timeIndex] === 0 && toiletData[timeIndex] === 0 && faucetData[timeIndex] === 0){
           this.setState({
+            ...this.state,
             option: optionChoice,
             kitchen: 1,
             toilet: 1,
@@ -89,6 +100,7 @@ class WaterBreakdown extends React.Component{
         }
         else{ 
           this.setState({
+            ...this.state,
             option: optionChoice,
             kitchen: kitchenData[timeIndex],
             toilet: toiletData[timeIndex],

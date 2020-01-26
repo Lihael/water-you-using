@@ -9,10 +9,10 @@ function Content(props){
         return <TotalWater/>
     }
     else if(props.page === 'WaterBreakdown'){
-        return <WaterBreakdown/>
+        return <WaterBreakdown domain = {props.domain}/>
     }
     else if(props.page === 'WaterTimeline'){
-        return <WaterTimeline/>
+        return <WaterTimeline domain = {props.domain} />
     }
     else{
         return <p></p>

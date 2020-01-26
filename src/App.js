@@ -3,10 +3,11 @@ import Content from './Content'
 import Tips from './Tip';
 import {Button} from 'semantic-ui-react'
 
-
+let domainName = "http://dorm.buttersalt.me:5000/"
 
 class App extends React.Component{
-  state = {page: 'TotalWater', waterTime: "19:20",waterVolume: 100}
+  
+  state = {page: 'TotalWater'}
   setButton(pageSet) {
     this.setState({
       ...this.state,
@@ -19,7 +20,7 @@ class App extends React.Component{
     var lastWater
     var lastWaterText
     var http_req = new XMLHttpRequest();
-        http_req.open("GET",'http://dorm.buttersalt.me:5000/getlastevent/mitchell/testpassmitchell',false);
+        http_req.open("GET",domainName + 'getlastevent/mitchell/testpassmitchell',false);
         http_req.send(null);
         lastWater = JSON.parse(http_req.responseText)
         lastWaterText = lastWater[0].text
@@ -43,7 +44,7 @@ class App extends React.Component{
               <Button primary onClick={() => this.setButton('TotalWater')}> Total Water</Button>
               <Button secondary onClick={() => this.setButton('WaterTimeline')}> Water Timeline</Button>
             </div>
-            <Content page = {this.state.page} />
+            <Content page = {this.state.page} domain = {domainName}/>
             <p><center><font color = "White">{lastWaterText}</font></center></p>
            </div>
 
