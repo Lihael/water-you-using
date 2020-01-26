@@ -45,6 +45,7 @@ function eraseCookie(name) {
 
 class WaterBreakdown extends React.Component{
     componentDidMount(){
+<<<<<<< HEAD
         this.setTimeFrame('hourly')
         fetch('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/kitchen')
             .then(response => response.json())
@@ -94,6 +95,33 @@ class WaterBreakdown extends React.Component{
     state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
     setTimeFrame(optionChoice) {
         var timeIndex = 0;
+=======
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/SOMEDATA', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            //data = body
+        })
+    }
+    
+    state = {option: 'hourly', toilet: 35, faucet: 40, kitchen: 55}
+    setTimeFrame(optionChoice) {
+        var timeIndex = 0;
+        var kitchenData = [0,1,2,3,4]
+        var toiletData = [0,1,2,3,4]
+        var faucetData = [0,1,2,3,4]
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/KITCHEN', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            kitchenData = body;})
+        request('http://dorm.buttersalt.me:5000/lasttimevolume/mitchell/testpassmitchell/bathroom', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            toiletData = body;})
+        request('http://dorm.buttersalt.me:5000/geteventdata/mitchell/testpassmitchell/FAUCET', function(error,response,body){
+            console.log(error)
+            console.log(response)
+            faucetData = body;})
+>>>>>>> parent of 0ed645d... final request commit
         if(optionChoice === 'hourly'){
             timeIndex = 0;
         }
