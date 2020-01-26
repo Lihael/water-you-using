@@ -1,5 +1,5 @@
 import React from 'react'
-import {VictoryChart, VictoryLine} from 'victory'
+import {VictoryChart, VictoryLine, VictoryAxis} from 'victory'
 import {Dropdown} from 'semantic-ui-react'
 
 var hourlyJSON = null
@@ -38,28 +38,28 @@ for(var i = 0; i < 7; i++){
     }
     switch(y){
         case 0:
-            todayThisWeek[i] = 'Sunday';
+            todayThisWeek[i] = 'SUN';
             break;
         case 1:
-            todayThisWeek[i] = 'Monday';
+            todayThisWeek[i] = 'MON';
             break;
         case 2:
-            todayThisWeek[i] = 'Tuesday';
+            todayThisWeek[i] = 'TUE';
             break;
         case 3:
-            todayThisWeek[i] = 'Wednesday';
+            todayThisWeek[i] = 'WED';
             break;
         case 4:
-            todayThisWeek[i] = 'Thursday';
+            todayThisWeek[i] = 'THU';
             break;
         case 5: 
-            todayThisWeek[i] = 'Friday';
+            todayThisWeek[i] = 'FRI';
             break;
         case 6: 
-            todayThisWeek[i] = 'Saturday'
+            todayThisWeek[i] = 'SAT'
             break;
         default:
-            todayThisWeek[i] = 'Monday'
+            todayThisWeek[i] = 'MON'
     }
     y--
 }
@@ -122,6 +122,9 @@ class WaterTimeline extends React.Component {
         daily[4] = dailyJSON[0].d5
         daily[5] = dailyJSON[0].d6
         daily[6] = dailyJSON[0].d7
+
+        //update now!
+
     }
 
     render(){
@@ -166,6 +169,9 @@ class WaterTimeline extends React.Component {
                     { x: hoursToday[1] , y: hourly[22]},
                     { x: hoursToday[0] , y: hourly[23]}
                 ]}
+            />
+            <VictoryAxis
+                label="Time (ms)"
             />
             </VictoryChart>
             </div>
