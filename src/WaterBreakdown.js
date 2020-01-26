@@ -104,6 +104,10 @@ class WaterBreakdown extends React.Component{
   </Dropdown> </div><br /></center>
         
           <VictoryPie
+          animate={{
+            duration: 2000,
+            easing: "bounce"
+          }}
           colorScale = "cool"
          style={{ labels: { fill: "white", fontStyle: "bold"} }}
          labelRadius={({ innerRadius }) => innerRadius + 70 }
@@ -125,6 +129,10 @@ class WaterBreakdown extends React.Component{
     </Dropdown.Menu>
   </Dropdown> </div><br /></center>
 <VictoryBar
+animate={{
+  duration: 2000,
+  easing: "bounce"
+}}
   barRatio = {1.5}
   data={[
     { x: "Toilet", y: this.state.toilet },
