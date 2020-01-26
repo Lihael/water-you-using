@@ -138,7 +138,7 @@ class WaterTimeline extends React.Component {
     render(){
         if(this.state.option === 'hourly'){
             return <div><br/>
-            <center><div class="ui teal massive label"><font color = "White">             Water Usage by Hour, Past 24 Hours             </font></div></center><br/>
+            <center><div class="ui teal massive label"><font color = "White">&nbsp;&nbsp;&nbsp;&nbsp;Your  Water  Usage  by  Hour,  for  the  Past  24  Hours &nbsp;&nbsp;&nbsp;&nbsp;</font></div></center><br/>
             <center>
                 <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
                 <Dropdown.Menu>
@@ -185,8 +185,8 @@ class WaterTimeline extends React.Component {
                 orientation="bottom"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30,stroke: "#dce8fc",fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, stroke: "#dce8fc",fill:"#dce8fc"}
+                    axisLabel: {fontSize: 20, padding: 30, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
                     }}
                 scale = {{x:"time"}}
             />
@@ -195,8 +195,8 @@ class WaterTimeline extends React.Component {
                 orientation="left"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30,stroke: "#dce8fc",fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, stroke: "#dce8fc",fill:"#dce8fc"}
+                    axisLabel: {fontSize: 20, padding: 35, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
                     }}
                 scale = {{y:"linear"}}
             />
@@ -206,7 +206,7 @@ class WaterTimeline extends React.Component {
         }
         else {
             return <div><br/>
-            <center><div class="ui teal massive label"><font color = "White">             Water Usage by Day, Past Week             </font></div></center><br/>
+            <center><div class="ui teal massive label"><font color = "White">&nbsp;&nbsp;&nbsp;&nbsp;Your  Water  Usage  by  Day  for  the  Past  Week&nbsp;&nbsp;&nbsp;&nbsp;</font></div></center><br/>
             <center>
                 <div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
                 <Dropdown.Menu>
@@ -235,8 +235,8 @@ class WaterTimeline extends React.Component {
                 orientation="bottom"
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30,stroke: "#dce8fc",fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, stroke: "#dce8fc",fill:"#dce8fc"}
+                    axisLabel: {fontSize: 20, padding: 30, fill:"#dce8fc"},
+                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
                     }}
                 scale = {{x: "time"}}
             />
@@ -245,8 +245,8 @@ class WaterTimeline extends React.Component {
                 scale ={{y:"linear"}}
                 style={{
                     axis: {stroke: "#dce8fc"},
-                    axisLabel: {fontSize: 20, padding: 30,stroke: "#dce8fc",fill:"#dce8fc"},
-                    tickLabels: {fontSize: 15, stroke: "#dce8fc",fill:"#dce8fc"}
+                    axisLabel: {fontSize: 20, padding: 35,fill:"#dce8fc"},
+                    tickLabels: {fontSize: 15, fill:"#dce8fc"}
                     }}
                 orientation="left"
             />
