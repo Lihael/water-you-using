@@ -3,7 +3,7 @@ import Content from './Content'
 import Tips from './Tip';
 import {Button} from 'semantic-ui-react'
 
-let domainName = "http://dorm.buttersalt.me:5000/"
+let domainName = "http://raswater.local:5000/"
 
 class App extends React.Component{
   
