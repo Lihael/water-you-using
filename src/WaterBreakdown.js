@@ -125,7 +125,7 @@ class WaterBreakdown extends React.Component{
     { x: "Kitchen", y: Math.round(this.state.kitchen) }
   ]}
 />
-<center><div class="ui teal massive label"><font color = "White">Total Breakdown: {this.state.option}</font></div></center><br />
+<center><div class="ui teal massive label"><font color = "White">Volume Breakdown: {this.state.option}</font></div></center><br />
 <center><div class = "ui blue large label"><Dropdown text='Time Frame Selection'>
     <Dropdown.Menu>
       <Dropdown.Item text='Past Hour' onClick = {() => this.setTimeFrame('hourly')} />
